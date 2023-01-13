@@ -1,0 +1,26 @@
+mat-drawer-content {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .example-sidenav {
+    padding: 20px;
+    height: 100%;
+  }
+  .example-container{
+    height: 100%;
+  }
+  .mdc-list-item.mdc-list-item--with-one-line {
+    height: 40px;
+  }
+  .mdc-list-item--with-leading-icon .mdc-list-item__start {
+    margin-left: 16px;
+    margin-right: 7px;
+}
+.listIcon{
+    font-size: 20px;
+}
+.spanText{
+    font-size: 14px;
+}
