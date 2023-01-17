@@ -1,9 +1,9 @@
 //---------------
-//  AMBIENtE LOCAL 
+//  AMBIENtE UAT 
 //---------------
 export const environment = {
     production: false,
     sidebar:{
-        seccion:'https://run.mocky.io/v3/e4a17f9e-be04-4275-8f2c-b7d1d4e9c35f'
+        seccion:'https://run.mocky.io/v3/7435b94c-fd35-47bf-9854-fe82dba7587b'
     }
 };

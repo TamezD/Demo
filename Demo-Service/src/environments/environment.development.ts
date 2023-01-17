@@ -1,5 +1,5 @@
 //---------------
-//  AMBIENtE UAT 
+//  AMBIENtE DESARROLLO 
 //---------------
 export const environment = {
     production: false,

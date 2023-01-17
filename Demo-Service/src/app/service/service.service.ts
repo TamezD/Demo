@@ -1,7 +1,7 @@
 import { Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, Subject, Observable, of, from } from 'rxjs';
-import {environment} from '../enviroments/environment';
+import { environment } from '../../environments/environment';
 import {MatDrawer} from '@angular/material/sidenav';
 
 
@@ -39,7 +39,7 @@ export class ServiceService {
   
   /* Encabezados */
 
-  httpOptionsMyProperty = {
+  httpOptionsMySharepoint = {
     headers: new HttpHeaders({
         "accept": "application/json; odata=verbose",
         "Cache-Control": "no-cache, no-store, must-revalidate",
@@ -49,10 +49,17 @@ export class ServiceService {
     })
   };
 
+  httpOptionsMyService = {
+    headers: new HttpHeaders({
+        "Content-Type": "application/json"
+    })
+  };
+
   /* Funciones */
 
-  getMyProperty() {
-    return this.http.get<any>(environment.getMyProperti,this.httpOptionsMyProperty);
+  //Servicio de Sidebar
+  getMySindebar() {
+    return this.http.get<any>(environment.sidebar.seccion,this.httpOptionsMyService);
   }
 
 }
