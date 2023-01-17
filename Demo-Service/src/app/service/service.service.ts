@@ -1,5 +1,7 @@
 import { Injectable} from '@angular/core';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { BehaviorSubject, Subject, Observable, of, from } from 'rxjs';
+import {environment} from '../enviroments/environment';
 import {MatDrawer} from '@angular/material/sidenav';
 
 
@@ -9,10 +11,11 @@ import {MatDrawer} from '@angular/material/sidenav';
 
 export class ServiceService {
 
-  constructor() {
-    
-  }
-  /* Funciones y varibales de Observables */
+  constructor(private http: HttpClient) { }
+
+  //---------------
+  //  OBSERBABLES 
+  //---------------
   
   //Se inicia el obserbable para controlar con otro controlador 
   private sidebar = new BehaviorSubject(false);
@@ -22,10 +25,34 @@ export class ServiceService {
       this.sidebar.next(value);
   }
 
+  //Obserbable de Sidebar
   public sideNavToggleSubject = new BehaviorSubject(false);
 
   public toggle() {
     return this.sideNavToggleSubject.next(false);
+  }
+
+  //---------------
+  //  LLAMADAS A WEBSERVICES 
+  //---------------
+
+  
+  /* Encabezados */
+
+  httpOptionsMyProperty = {
+    headers: new HttpHeaders({
+        "accept": "application/json; odata=verbose",
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        "Pragma": "no-cache",
+        "Expires": "0",
+        "Content-Type": "application/json"
+    })
+  };
+
+  /* Funciones */
+
+  getMyProperty() {
+    return this.http.get<any>(environment.getMyProperti,this.httpOptionsMyProperty);
   }
 
 }
