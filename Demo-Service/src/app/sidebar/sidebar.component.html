@@ -1,5 +1,5 @@
-<mat-drawer-container class="example-container" [hasBackdrop]="true">
-    <mat-drawer #drawer mode="side" class="example-sidenav">My Sindebar
+<mat-sidenav-container class="example-container" [hasBackdrop]="true">
+    <mat-sidenav #sidenav mode="side" class="example-sidenav">My Sindebar
         <mat-list>
             <mat-list-item class="contenerItem">
               <mat-icon matListItemIcon class="listIcon">folder</mat-icon>
@@ -10,10 +10,9 @@
                   <span class="spanText">Formulario</span>
               </mat-list-item>
           </mat-list>
-    </mat-drawer>
-    <mat-drawer-content>
+    </mat-sidenav>
+    <mat-sidenav-content>
 
      
-      <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
-    </mat-drawer-content>
-  </mat-drawer-container>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
