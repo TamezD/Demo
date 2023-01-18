@@ -1,0 +1,33 @@
+.containerMargin{
+    margin-top: 20px;
+}
+
+.example-card {
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+.colMargionTop{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.colorCard{
+    background-color:#31394D
+}
+
+.cardWidth{
+    max-width: 600px;
+}
+
+.container {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.container::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}

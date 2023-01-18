@@ -16,13 +16,16 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
 import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
+import { BodyComponent } from './home/body/body.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    BodyComponent
     
   ],
   imports: [
@@ -33,7 +36,8 @@ import {MatListModule} from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

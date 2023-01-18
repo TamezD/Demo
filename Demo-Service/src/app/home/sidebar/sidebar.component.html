@@ -1,14 +1,17 @@
 <mat-sidenav-container class="example-container" [hasBackdrop]="true">
-    <mat-sidenav #sidenav mode="side" class="example-sidenav">My Sindebar
-        <mat-list>
-            <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo">
-              <mat-icon matListItemIcon class="listIcon">{{infoSider.attributes.iconoSeccion}}</mat-icon>
-                <span class="spanText">{{infoSider.attributes.nombreSeccion}}</span>
-            </mat-list-item>
-          </mat-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
+  <mat-sidenav #sidenav mode="side" class="example-sidenav">My Sindebar
+    <mat-list>
+      <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo">
+        <mat-icon matListItemIcon class="listIcon">{{infoSider.attributes.iconoSeccion}}</mat-icon>
+        <span class="spanText">{{infoSider.attributes.nombreSeccion}}</span>
+      </mat-list-item>
+    </mat-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!--Seccion de Home-->
+    <app-home></app-home>
 
-     
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    <!--Compensacion de Encabezado en scroll-->
+    <div style="height: 65px;"></div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
