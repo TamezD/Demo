@@ -1,6 +1,7 @@
 import { Component,ViewChild, OnInit, Input} from '@angular/core';
 import { ServiceService } from '../../service/service.service';
 import { MatSidenav } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class SidebarComponent  {
   //@ViewChild('sidenav') public sidenav: MatSidenav;
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
 
-  constructor(private Services: ServiceService){
+  constructor(private Services: ServiceService, private Router: Router){
     //Code
     
   }
@@ -36,9 +37,16 @@ export class SidebarComponent  {
         this.sidenav.toggle();
       }
     });
+    
     this.status = false;
 
     this.getMySidebar()
+
+    this.Services.sideNavToggleFalseSubject.subscribe((sidInfo)=> {
+      if(!sidInfo){
+        this.sidenav.toggle(false);
+      }
+      });
   }
 
   //              ---------------//
@@ -54,8 +62,13 @@ export class SidebarComponent  {
     this.Services.getMySindebar()
     .subscribe((sidebar) => {
       this.sidebarInfo = sidebar.data;
-      console.log(JSON.stringify(sidebar.data));
+      //console.log(JSON.stringify(sidebar.data));
     });
+  }
+
+  routerLink(router: any){
+    this.Router.navigate([router]);
+    this.Services.toggleFalse(false);
   }
 
 }

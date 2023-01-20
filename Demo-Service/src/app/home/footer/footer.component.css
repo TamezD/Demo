@@ -1,0 +1,32 @@
+.conterFooter{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.dividMargin{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.colMargionTop{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.itemHeight{
+    height: 25px;
+    margin: 0px;
+}
+.h3Height{
+    height: 30px;
+    margin-bottom: 0px;
+}
+.spnaFont{
+    font-weight: 300;
+
+}
+.colWith{
+    width: auto;
+}
+.imgSocialHeight{
+    height: 35px;
+    margin-right: 10px;
+    margin-top: 5px;
+}

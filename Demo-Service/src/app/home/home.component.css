@@ -2,8 +2,8 @@
     margin-top: 20px;
 }
 
-.example-card {
-    max-width: 400px;
+.cardWidth{
+    max-width: 600px;
 }
 
 .example-header-image {
@@ -18,10 +18,6 @@
 
 .colorCard{
     background-color:#31394D
-}
-
-.cardWidth{
-    max-width: 600px;
 }
 
 .container {

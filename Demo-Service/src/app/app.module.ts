@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
 
 //COMPONENTES
@@ -18,6 +19,9 @@ import { SidebarComponent } from './home/sidebar/sidebar.component';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
 import { BodyComponent } from './home/body/body.component';
+import { FooterComponent } from './home/footer/footer.component';
+import {MatDividerModule} from '@angular/material/divider';
+import { UserComponent } from './home/user/user.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +29,13 @@ import { BodyComponent } from './home/body/body.component';
     HomeComponent,
     HeaderComponent,
     SidebarComponent,
-    BodyComponent
+    BodyComponent,
+    FooterComponent,
+    UserComponent
     
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -37,7 +44,8 @@ import { BodyComponent } from './home/body/body.component';
     MatSidenavModule,
     MatListModule,
     HttpClientModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

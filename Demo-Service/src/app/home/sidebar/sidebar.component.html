@@ -1,16 +1,19 @@
 <mat-sidenav-container class="example-container" [hasBackdrop]="true">
   <mat-sidenav #sidenav mode="side" class="example-sidenav">My Sindebar
     <mat-list>
-      <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo">
+      <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo" (click)="routerLink('/user')">
+        <!-- <a [routerLink]="['/user']"> -->
         <mat-icon matListItemIcon class="listIcon">{{infoSider.attributes.iconoSeccion}}</mat-icon>
         <span class="spanText">{{infoSider.attributes.nombreSeccion}}</span>
+        <!-- </a> -->
       </mat-list-item>
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <!--Seccion de Home-->
-    <app-home></app-home>
-
+    <router-outlet></router-outlet>
+    <!--Seccion de Footer-->
+    <app-footer></app-footer>
     <!--Compensacion de Encabezado en scroll-->
     <div style="height: 65px;"></div>
   </mat-sidenav-content>

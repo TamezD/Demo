@@ -4,6 +4,9 @@
 .headercs{
   width: auto;
 }
+.headerColor{
+  background-color: #4571b1!important;
+}
 .example-sidenav {
   padding: 20px;
   height: 100%;

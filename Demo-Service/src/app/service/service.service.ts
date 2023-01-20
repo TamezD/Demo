@@ -26,10 +26,16 @@ export class ServiceService {
   }
 
   //Obserbable de Sidebar
-  public sideNavToggleSubject = new BehaviorSubject(false);
-
+  public sideNavToggleSubject = new BehaviorSubject(null);
+  
   public toggle() {
-    return this.sideNavToggleSubject.next(false);
+    return this.sideNavToggleSubject.next(null);
+  }
+  //Obserbable de Sidebar con siempre false
+  public sideNavToggleFalseSubject = new BehaviorSubject(null);
+  
+  public toggleFalse(tipo: any) {
+    this.sideNavToggleFalseSubject.next(tipo);
   }
 
   //---------------
