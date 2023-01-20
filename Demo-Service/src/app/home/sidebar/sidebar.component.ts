@@ -66,9 +66,17 @@ export class SidebarComponent  {
     });
   }
 
-  routerLink(router: any){
-    this.Router.navigate([router]);
-    this.Services.toggleFalse(false);
+  //---------------
+  //  FUNCIONES
+  //---------------
+  //Funcion de Navegacion de Sidebar
+  routerLink(router: any, tipo: any){
+    if(tipo == "page"){
+      window.open(router, "_blank");
+    }else{
+      this.Router.navigate(['/'+router]);
+      this.Services.toggleFalse(false);
+    }
   }
 
 }

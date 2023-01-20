@@ -4,6 +4,6 @@
 export const environment = {
     production: false,
     sidebar:{
-        seccion:'https://run.mocky.io/v3/7435b94c-fd35-47bf-9854-fe82dba7587b'
+        seccion:'https://run.mocky.io/v3/a7c4b3a6-5203-4dd8-8099-40abbb954d54'
     }
 };

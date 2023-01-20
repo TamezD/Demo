@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ServiceService } from 'src/app/service/service.service'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user',
@@ -8,14 +9,18 @@ import { ServiceService } from 'src/app/service/service.service';
 })
 export class UserComponent {
 
-  constructor (private servicio: ServiceService){
-    
+  constructor (private servicio: ServiceService, private Router: Router){
     
   }
   ngOnInit() {
-    setTimeout(() => {
-      //this.servicio.toggleFalse(false);
-    }, 10)
+    
   }
 
+  //---------------
+  //  FUNCIONES
+  //---------------
+  //Funcion de regreso de Home
+  BackHome(){
+    this.Router.navigate(['']);
+  }
 }

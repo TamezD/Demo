@@ -1,0 +1,69 @@
+.containerMargin{
+    margin-top: 20px;
+}
+.cardWidth{
+    max-width: 800px;
+    align-items: center;
+}
+.colMargionTop{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.colorCard{
+    background-color:#31394D
+}
+.userImage {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    text-align: center;
+}
+.textPerfil{
+    margin-top: 10px;
+    font-weight: 300;
+}
+.imgPerfil{
+    margin-top: 20px;
+    border-radius: 60px;
+    height: 120px;
+    width: 120px;
+}
+.buttonColorSeguir{
+    background: linear-gradient(to top right, #8162CE, #F54BA5);
+    border-radius: 25px;
+}
+.imgConsoleHeight{
+    height: 35px;
+    width: 35px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.colMargionConsole{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.roWith{
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.actionCard{
+    width: 100%;
+}
+.dividMargin{
+    margin-top: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.spanFollow{
+    color:#666B7D;
+    font-family: roboto;
+    font-weight: 500;
+}
+.buttonSettings{
+    position: absolute;
+    right: 5px;
+}
+.buttonBack{
+    position: absolute;
+    left: 5px;
+}

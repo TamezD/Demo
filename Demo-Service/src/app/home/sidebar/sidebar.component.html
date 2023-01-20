@@ -1,7 +1,7 @@
 <mat-sidenav-container class="example-container" [hasBackdrop]="true">
   <mat-sidenav #sidenav mode="side" class="example-sidenav">My Sindebar
     <mat-list>
-      <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo" (click)="routerLink('/user')">
+      <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo" (click)="routerLink(infoSider.attributes.ligaSeccion, infoSider.type)">
         <!-- <a [routerLink]="['/user']"> -->
         <mat-icon matListItemIcon class="listIcon">{{infoSider.attributes.iconoSeccion}}</mat-icon>
         <span class="spanText">{{infoSider.attributes.nombreSeccion}}</span>
@@ -10,7 +10,7 @@
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <!--Seccion de Home-->
+    <!--Seccion de outlet cel es la navegacion de sitio-->
     <router-outlet></router-outlet>
     <!--Seccion de Footer-->
     <app-footer></app-footer>

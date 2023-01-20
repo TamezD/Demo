@@ -1,22 +1,56 @@
-<div class="col-md-4 colMargionTop">
-    <mat-card class="cardWidth">
-        <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-            alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-            </p>
-        </mat-card-content>
-        <mat-card-actions align="end">
-            <button mat-button>LIKE</button>
-            <button mat-button>SHARE</button>
-        </mat-card-actions>
-    </mat-card>
+<div class="container containerMargin">
+    <div class="row">
+        <div class="col-md-5 colMargionTop">
+            <mat-card class="cardWidth" align="center">
+                <button mat-icon-button class="buttonBack" (click)="BackHome()">
+                    <mat-icon>arrow_back</mat-icon>
+                </button>
+                <button mat-icon-button class="buttonSettings">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <img class="imgPerfil" src="/assets/img/Krad.jpg" alt="Photo of a Shiba Inu">
+                <mat-card-header>
+                    <mat-card-title>Daniel Dark</mat-card-title>
+                    <mat-card-subtitle>Full Player</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p class="textPerfil">
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                        bred for hunting.
+                    </p>
+                    <button mat-button class="buttonColorSeguir">Seguirme</button>
+                    <mat-divider class="dividMargin"></mat-divider>
+                </mat-card-content>
+                <mat-card-actions class="actionCard">
+                    <div class="row roWith">
+                        <div class="col-md-4 colMargionConsole">
+                            <img class="imgConsoleHeight" src="/assets/icons/console/playstation.png"
+                                alt="Console Playstation">
+                            <h3 class="h3Height">12K</h3>
+                            <span class="spanFollow">Follows</span>
+                        </div>
+                        <div class="col-md-4 colMargionConsole">
+                            <img class="imgConsoleHeight" src="/assets/icons/console/xbox.png" alt="Console Xbox">
+                            <h3 class="h3Height">7K</h3>
+                            <span class="spanFollow">Follows</span>
+                        </div>
+                        <div class="col-md-4 colMargionConsole">
+                            <img class="imgConsoleHeight" src="/assets/icons/console/nintendo.png"
+                                alt="Console Nintendo">
+                            <h3 class="h3Height">10k</h3>
+                            <span class="spanFollow">Follows</span>
+                        </div>
+                    </div>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+        <div class="col-md-7 colMargionTop">
+            <!-- <div class="card colorCard">
+                <div style="align-items: center;">
+                    <div mat-card-avatar class="userImage"></div>
+                </div>
+            </div> -->
+        </div>
+    </div>
 </div>
