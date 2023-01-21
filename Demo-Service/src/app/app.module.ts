@@ -2,26 +2,33 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //COMPONENTES
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './home/header/header.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
-//MATERIALS
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import { SidebarComponent } from './home/sidebar/sidebar.component';
-import {MatListModule} from '@angular/material/list';
-import {MatCardModule} from '@angular/material/card';
 import { BodyComponent } from './home/body/body.component';
 import { FooterComponent } from './home/footer/footer.component';
-import {MatDividerModule} from '@angular/material/divider';
 import { UserComponent } from './home/user/user.component';
+import { SeccionesComponent } from './secciones/secciones.component';
+import { PreguntasComponent } from './secciones/preguntas/preguntas.component';
+
+//MATERIALS
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
@@ -31,8 +38,10 @@ import { UserComponent } from './home/user/user.component';
     SidebarComponent,
     BodyComponent,
     FooterComponent,
-    UserComponent
-    
+    UserComponent,
+    SeccionesComponent,
+    PreguntasComponent
+
   ],
   imports: [
     AppRoutingModule,
@@ -45,7 +54,12 @@ import { UserComponent } from './home/user/user.component';
     MatListModule,
     HttpClientModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTooltipModule,
+    MatMenuModule,
+    MatBadgeModule,
+    MatExpansionModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

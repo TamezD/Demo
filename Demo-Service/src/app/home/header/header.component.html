@@ -1,13 +1,27 @@
 <mat-toolbar color="primary" class="headercs headerColor">
-    <button mat-icon-button (click)="clickMenu()" class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button matTooltip="Menu" matTooltipPosition="below" (click)="clickMenu()" class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
     <span>DemoService</span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
+    <button mat-icon-button 
+      matBadge="7"
+      matTooltip="Notificaciones"
+      matTooltipPosition="below"
+      class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>notifications_active</mat-icon>
     </button>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>share</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="beforeMenu" class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>more_vert</mat-icon>
     </button>
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item disabled>
+        <mat-icon>get_app</mat-icon>
+        <span>Version 1.0.1</span>
+      </button>
+      <button mat-menu-item [routerLink]="'/preguntas'">
+        <mat-icon>info</mat-icon>
+        <span>Acerca de</span>
+      </button>
+    </mat-menu>
   </mat-toolbar>

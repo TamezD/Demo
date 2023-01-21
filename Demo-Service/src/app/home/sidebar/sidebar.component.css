@@ -25,3 +25,8 @@ mat-drawer-content {
 .spanText{
     font-size: 14px;
 }
+.footer{
+  position: absolute;
+  bottom: 65px;
+  width: 100%;
+}

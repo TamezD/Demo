@@ -13,3 +13,13 @@ body {
     /* overflow-y: scroll; */
 }
 
+/* Componente header  */
+/* modificar las iconos de notificaciones*/
+.mat-badge-medium.mat-badge-overlap.mat-badge-after .mat-badge-content {
+    right: -5px!important;
+}
+/* Componente header  */
+/* modificar las iconos de notificaciones*/
+.mat-badge-medium.mat-badge-above .mat-badge-content{
+    top: -5px!important;
+}
