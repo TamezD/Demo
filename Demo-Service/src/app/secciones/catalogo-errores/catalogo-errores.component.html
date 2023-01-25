@@ -1,0 +1,29 @@
+<div class="container containerHeight">
+    <!--Encabezado de Navegacion-->
+    <div>
+        <h4 class="TituloHeight" [routerLink]="''">DemoService</h4>
+        <mat-icon class="iconTitlePosition">arrow_right_alt</mat-icon>
+        <h4 class="TituloHeight">Catalogo de Mensaje de Error</h4>
+        <span class="spanSubTitle">Revisa las diferentes tipos de error que pueden presentarse durante la navegacion del sitio, asi como una leve descripción de ello.</span>
+        <mat-divider class="dividMargin"></mat-divider>
+    </div>
+    <!--FIN Encabezado de Navegacion-->
+    <div class="row">
+        <div class="col-md-4 col-lg-3 colMargionTop" *ngFor="let error of errors">
+            <mat-card class="cardWidth" align="center">
+                <img class="imgPerfil" src={{error.attributes.imgDogUrl}} alt="Photo of a Shiba Inu">
+                <mat-card-header>
+                    <mat-card-title>{{error.attributes.nombrePerro}}</mat-card-title>
+                    <mat-card-subtitle>{{error.attributes.tipo}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p class="textPerfil">
+                        {{error.attributes.descripcion}}
+                    </p>
+                    <button mat-button class="buttonColorSeguir" (click)="openDialog(error)">Mostrar</button>
+                    <mat-divider class="dividMargin"></mat-divider>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

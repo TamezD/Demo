@@ -68,4 +68,9 @@ export class ServiceService {
     return this.http.get<any>(environment.sidebar.seccion,this.httpOptionsMyService);
   }
 
+  //Servicio de Catalogo de Errores
+  getMyCatalogoError() {
+    return this.http.get<any>(environment.sidebar.dogError,this.httpOptionsMyService);
+  }
+
 }

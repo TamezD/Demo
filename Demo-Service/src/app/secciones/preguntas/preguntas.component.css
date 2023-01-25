@@ -1,12 +1,47 @@
-.containerMargin{
-    margin-top: 20px;
-    min-height: 450px;
+.containerSeccion {
+  margin-top: 20px;
+  min-height: 100px;
+}
+.containerHeight {
+  margin-top: 20px;
+  min-height: 450px;
+}
+.cardMargin{
+  margin-bottom: 20px;
+}
+.panelTitle {
+  min-width: 200px;
+}
+.iconPanelDescripcion {
+  position: absolute;
+  right: 45px;
 }
 .example-headers-align .mat-expansion-panel-header-description {
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
-    margin-left: 8px;
-  }
+  justify-content: space-between;
+  align-items: center;
+}
+.example-headers-align .mat-mdc-form-field+.mat-mdc-form-field {
+  margin-left: 8px;
+}
+.pEstilo{
+  font-size: 15px;
+}
+/*Encabezado de titulo de Navegacion*/
+.TituloHeight{
+  margin-bottom: 3px;
+  display: inline-block;
+}
+.spanSubTitle{
+  font-size: 12px;
+  font-weight: 300;
+  display: block;
+}
+.iconTitlePosition{
+  position: relative;
+  top: 7px;
+}
+.dividMargin{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+/*FIN de Encabezado de titulo de Navegacion*/

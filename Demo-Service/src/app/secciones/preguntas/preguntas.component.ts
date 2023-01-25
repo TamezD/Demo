@@ -1,4 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { ModalErrorComponent } from '../modal-error/modal-error.component';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-preguntas',
@@ -8,15 +15,22 @@ import { Component } from '@angular/core';
 export class PreguntasComponent {
   step = 3;
 
-  setStep(index: number) {
-    this.step = index;
+  animal: string;
+  name: string;
+
+  constructor (public dialog: MatDialog){
+
   }
 
-  nextStep() {
-    this.step++;
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ModalErrorComponent, {
+      data: {name: this.name, animal: this.animal},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
 
-  prevStep() {
-    this.step--;
-  }
 }

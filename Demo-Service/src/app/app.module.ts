@@ -14,6 +14,8 @@ import { FooterComponent } from './home/footer/footer.component';
 import { UserComponent } from './home/user/user.component';
 import { SeccionesComponent } from './secciones/secciones.component';
 import { PreguntasComponent } from './secciones/preguntas/preguntas.component';
+import { ModalErrorComponent } from './secciones/modal-error/modal-error.component';
+import { CatalogoErroresComponent } from './secciones/catalogo-errores/catalogo-errores.component';
 
 //MATERIALS
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,7 +29,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog';
+/*Angular Forms*/
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -40,7 +47,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FooterComponent,
     UserComponent,
     SeccionesComponent,
-    PreguntasComponent
+    PreguntasComponent,
+    ModalErrorComponent,
+    CatalogoErroresComponent
 
   ],
   imports: [
@@ -59,7 +68,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatMenuModule,
     MatBadgeModule,
     MatExpansionModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

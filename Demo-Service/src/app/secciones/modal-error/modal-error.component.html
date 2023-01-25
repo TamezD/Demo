@@ -1,0 +1,26 @@
+<h3 mat-dialog-title>Modale Detalle 
+    <button mat-icon-button class="buttonCerrar"  matTooltip="Cerrar" matTooltipPosition="below" (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+    </button>
+</h3>
+<div mat-dialog-content>
+    <mat-card class="cardWidth" align="center">
+        <img class="imgPerfil" src={{data.error.attributes.imgDogUrl}} alt="Photo of a Shiba Inu">
+        <mat-card-header>
+            <mat-card-title>{{data.error.attributes.nombrePerro}}</mat-card-title>
+            <mat-card-subtitle>{{data.error.attributes.tipo}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="col">
+                <p class="textPerfil">
+                    {{data.error.attributes.descripcion}}
+                </p>
+            </div>
+            <mat-divider class="dividMargin"></mat-divider>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button #colse [autofocus]="colse.focus()" (click)="onNoClick()">Cerrar</button>
+  <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+</div>

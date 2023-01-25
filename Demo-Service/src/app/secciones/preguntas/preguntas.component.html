@@ -1,32 +1,62 @@
-<div class="container containerMargin">
-    <div class="row">
-        <mat-accordion class="example-headers-align">
-            <mat-expansion-panel [expanded]="step === 0">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    ¿Que es esta pagina?
-                  </mat-panel-title>
-                  <mat-panel-description>
-                    <mat-icon>account_circle</mat-icon>
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="container containerMargin">
-                    <p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.</p>
-                </div>
-              </mat-expansion-panel>
-              <mat-expansion-panel [expanded]="step === 1">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                   ¿Que podemos hacer aqui?
-                  </mat-panel-title>
-                  <mat-panel-description>
-                    <mat-icon>account_circle</mat-icon>
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <div class="container containerMargin">
-                    <p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.</p>
-                </div>
-              </mat-expansion-panel>
-        </mat-accordion>
+<div class="container containerHeight">
+  <!--Encabezado de Navegacion-->
+  <div>
+    <h4 class="TituloHeight" [routerLink]="''">DemoService</h4>
+    <mat-icon class="iconTitlePosition">arrow_right_alt</mat-icon>
+    <h4 class="TituloHeight">Acerca de..</h4>
+    <span class="spanSubTitle">Revisa las preguntas mas frecuentes que mas han preguntado del sitio.</span>
+    <mat-divider class="dividMargin"></mat-divider>
+  </div>
+  <!--FIN de Encabezado de Navegacion-->
+<!--Seccion de Saber Mas-->
+  <div class="row">
+    <div class="col-md-5 cardMargin">
+      <mat-card>
+        <mat-card-content>
+          <h4>
+            Que te gustaria saber?
+          </h4>
+          <p class="pEstilo">
+            Se ofrece aquí respuesta a una selección de las preguntas más frecuentes planteadas por los usuarios del
+            servicio.
+          </p>
+        </mat-card-content>
+      </mat-card>
     </div>
+    <!--Preguntas Frecuentes-->
+    <div class="col-md-7">
+      <mat-accordion class="example-headers-align">
+        <mat-expansion-panel [expanded]="step === 0">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="panelTitle">
+              ¿Que es esta pagina?
+            </mat-panel-title>
+            <mat-panel-description>
+              <mat-icon class="iconPanelDescripcion">help_outline</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="container containerSeccion">
+            <p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small,
+              agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
+            </p>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="step === 1">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="panelTitle">
+              ¿Que podemos hacer aqui?
+            </mat-panel-title>
+            <mat-panel-description>
+              <mat-icon class="iconPanelDescripcion">contact_phone</mat-icon>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <div class="container containerSeccion">
+            <p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan. A small,
+              agile dog that copes very well with mountainous terrain, the Shiba Inu was originally bred for hunting.
+            </p>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </div>
 </div>

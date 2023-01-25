@@ -1,21 +1,7 @@
-.containerMargin{
-    margin-top: 20px;
-}
 .cardWidth{
-    max-width: 800px;
     align-items: center;
-}
-.colMargionTop{
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.colorCard{
-    background-color:#31394D
-}
-.userImage {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-    text-align: center;
+    box-shadow: none;
+    max-width: 400px;
 }
 .textPerfil{
     margin-top: 10px;
@@ -59,28 +45,8 @@
     font-family: roboto;
     font-weight: 500;
 }
-.buttonSettings{
+.buttonCerrar{
     position: absolute;
     right: 5px;
-}
-.buttonBack{
-    position: absolute;
-    left: 5px;
-}
-.TituloHeight{
-    margin-bottom: 3px;
-    display: inline-block;
-  }
-.spanSubTitle{
-font-size: 12px;
-font-weight: 300;
-display: block;
-}
-.iconTitlePosition{
-position: relative;
-top: 7px;
-}
-.dividMarginTitle{
-margin-top: 10px;
-margin-bottom: 15px;
+    top: 5px;
 }
