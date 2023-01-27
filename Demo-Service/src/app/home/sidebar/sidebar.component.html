@@ -2,11 +2,16 @@
   <mat-sidenav #sidenav mode="side" class="example-sidenav">My Sindebar
     <mat-list>
       <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo" (click)="routerLink(infoSider.attributes.ligaSeccion, infoSider.type)">
-        <!-- <a [routerLink]="['/user']"> -->
         <mat-icon matListItemIcon class="listIcon">{{infoSider.attributes.iconoSeccion}}</mat-icon>
-        <span class="spanText">{{infoSider.attributes.nombreSeccion}}</span>
-        <!-- </a> -->
+        <span *ngIf="infoSider.attributes.nombreSeccion?.length > 15" matTooltip={{infoSider.attributes.nombreSeccion}} matTooltipPosition="below" class="spanText">{{infoSider.attributes.nombreSeccion}}</span>
+        <span *ngIf="infoSider.attributes.nombreSeccion?.length < 15" class="spanText">{{infoSider.attributes.nombreSeccion}}</span>
       </mat-list-item>
+      <div class="divContacto">
+      <mat-list-item class="itemHeight" [routerLink]="'contacto'">
+        <mat-icon matListItemIcon class="listIcon">contact_support</mat-icon>
+        <span class="spnaFont">Contactanos</span>
+      </mat-list-item>
+      </div>
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>

@@ -30,3 +30,11 @@ mat-drawer-content {
   bottom: 65px;
   width: 100%;
 }
+.spnaFont{
+  font-weight: 300;
+  cursor: pointer;
+}
+.divContacto{
+  position: absolute;
+  bottom: 70px;
+}

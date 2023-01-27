@@ -30,10 +30,16 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+
 /*Angular Forms*/
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { ContactoComponent } from './secciones/contacto/contacto.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 
@@ -49,7 +55,8 @@ import { FormsModule } from '@angular/forms';
     SeccionesComponent,
     PreguntasComponent,
     ModalErrorComponent,
-    CatalogoErroresComponent
+    CatalogoErroresComponent,
+    ContactoComponent
 
   ],
   imports: [
@@ -71,7 +78,9 @@ import { FormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
