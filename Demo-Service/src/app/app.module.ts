@@ -31,6 +31,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 /*Angular Forms*/
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -38,6 +39,9 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { ContactoComponent } from './secciones/contacto/contacto.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { UsuariosComponent } from './secciones/usuarios/usuarios.component';
 
 
 
@@ -56,7 +60,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PreguntasComponent,
     ModalErrorComponent,
     CatalogoErroresComponent,
-    ContactoComponent
+    ContactoComponent,
+    UsuariosComponent
 
   ],
   imports: [
@@ -80,7 +85,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatAutocompleteModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

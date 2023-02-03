@@ -75,8 +75,8 @@ export class SidebarComponent  {
       window.open(router, "_blank");
     }else{
       this.Router.navigate(['/'+router]);
-      this.Services.toggleFalse(false);
     }
+    this.Services.toggleFalse(false);
   }
 
 }

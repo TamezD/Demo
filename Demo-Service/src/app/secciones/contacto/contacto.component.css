@@ -21,6 +21,9 @@
     margin-bottom: 15px;
 }
 /*FIN de Encabezado de titulo de Navegacion*/
+.cardWidth{
+    width: 100%;
+}
 .colMargin{
     margin-top: 15px;
     text-align: center;
@@ -45,6 +48,12 @@ td{
     background: linear-gradient(to top right, #6271ce, #16eaae);
     border-radius: 25px;
     width: 120px;
+}
+
+::ng-deep .mat-mdc-snack-bar-container {
+    --mat-mdc-snack-bar-button-color: rgba(0, 0, 0, 0.87);
+    --mdc-snackbar-container-color: #42ba90;
+    --mdc-snackbar-supporting-text-color: rgba(66, 66, 66, 0.87);
 }
   
   

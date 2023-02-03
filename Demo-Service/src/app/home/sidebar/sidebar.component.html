@@ -7,7 +7,7 @@
         <span *ngIf="infoSider.attributes.nombreSeccion?.length < 15" class="spanText">{{infoSider.attributes.nombreSeccion}}</span>
       </mat-list-item>
       <div class="divContacto">
-      <mat-list-item class="itemHeight" [routerLink]="'contacto'">
+      <mat-list-item class="itemHeight" (click)="routerLink('contacto', 'nombreSeccion')">
         <mat-icon matListItemIcon class="listIcon">contact_support</mat-icon>
         <span class="spnaFont">Contactanos</span>
       </mat-list-item>
