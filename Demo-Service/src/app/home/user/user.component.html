@@ -1,10 +1,14 @@
-<div class="container containerMargin">
-    <div>
+<!--Preloader-->
+<div class="preloader" *ngIf="preloader">
+    <mat-spinner [color]="color" ></mat-spinner>
+</div>
+<div class="container">
+    <div class="encabezadoMargin">
         <h4 class="TituloHeight" [routerLink]="''">DemoService</h4>
         <mat-icon class="iconTitlePosition">arrow_right_alt</mat-icon>
         <h4 class="TituloHeight">Perfil de Usuario</h4>
         <span class="spanSubTitle">Tu informacion mas actualizada y personaliza de tu perfil.</span>
-        <mat-divider class="dividMarginTitle"></mat-divider>
+        <mat-divider class="dividMarginSeparador"></mat-divider>
     </div>
     <div class="row">
         <div class="col-md-5 colMargionTop">
@@ -27,23 +31,23 @@
                         A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
                         bred for hunting.
                     </p>
-                    <button mat-button class="buttonColorSeguir">Seguirme</button>
+                    <button mat-button class="buttonColorSeguir" (click)="enviarFollow()">Seguirme</button>
                     <mat-divider class="dividMargin"></mat-divider>
                 </mat-card-content>
                 <mat-card-actions class="actionCard">
                     <div class="row roWith">
-                        <div class="col-md-4 colMargionConsole">
+                        <div class="col-4 col-md-4 colMargionConsole">
                             <img class="imgConsoleHeight" src="/assets/icons/console/playstation.png"
                                 alt="Console Playstation">
                             <h3 class="h3Height">12K</h3>
                             <span class="spanFollow">Follows</span>
                         </div>
-                        <div class="col-md-4 colMargionConsole">
+                        <div class="col-4 col-md-4 colMargionConsole">
                             <img class="imgConsoleHeight" src="/assets/icons/console/xbox.png" alt="Console Xbox">
                             <h3 class="h3Height">7K</h3>
                             <span class="spanFollow">Follows</span>
                         </div>
-                        <div class="col-md-4 colMargionConsole">
+                        <div class="col-4 col-md-4 colMargionConsole">
                             <img class="imgConsoleHeight" src="/assets/icons/console/nintendo.png"
                                 alt="Console Nintendo">
                             <h3 class="h3Height">10k</h3>

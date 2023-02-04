@@ -1,27 +1,3 @@
-/*Encabezado de titulo de Navegacion*/
-.TituloHeight{
-    margin-bottom: 3px;
-    display: inline-block;
-}
-.spanSubTitle{
-    font-size: 12px;
-    font-weight: 300;
-    display: block;
-}
-.iconTitlePosition{
-    position: relative;
-    top: 7px;
-}
-.dividMargin{
-    margin-top: 10px;
-    margin-bottom: 15px;
-}
-.colMargionTop{
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-/*FIN de Encabezado de titulo de Navegacion*/
-
 .containerHeight {
     margin-top: 20px;
     min-height: 450px;

@@ -19,16 +19,16 @@ export class ContactoComponent {
   public myForm: FormGroup;
   telfono: any;
   botonEnviar: boolean = true;
-  numerColorPreloader: number = 1;
+  
+  //Varibles de Preloader
   preloader: boolean = true;
+  numerColorPreloader: number = 1;
 
   //Varibales de Mensajes
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
-
   color: ThemePalette = 'primary';
-  mode: ProgressSpinnerMode = 'determinate';
-  value = 50;
+  
 
   //Variables de Valores de validacion.
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
@@ -87,6 +87,7 @@ export class ContactoComponent {
     },2600)
   }
 
+  //Funcion de cambio de color de preloader
   changeColorPreloader(){
     setTimeout(() => {
       switch(this.numerColorPreloader){
@@ -103,7 +104,9 @@ export class ContactoComponent {
           this.numerColorPreloader = 1;
         break;
       };
-    this.changeColorPreloader();
+    if(this.preloader == true){
+      this.changeColorPreloader();
+    }
     },1400)
   }
 

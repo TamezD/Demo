@@ -1,6 +1,9 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+.title{
+  cursor: pointer;
+}
 .headercs{
   width: auto;
 }

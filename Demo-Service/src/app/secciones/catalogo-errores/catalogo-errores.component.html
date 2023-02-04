@@ -1,11 +1,15 @@
-<div class="container containerHeight">
+<!--Preloader-->
+<div class="preloader" *ngIf="preloader">
+    <mat-spinner [color]="color"></mat-spinner>
+</div>
+<div class="container">
     <!--Encabezado de Navegacion-->
-    <div>
+    <div class="encabezadoMargin">
         <h4 class="TituloHeight" [routerLink]="''">DemoService</h4>
         <mat-icon class="iconTitlePosition">arrow_right_alt</mat-icon>
         <h4 class="TituloHeight">Catalogo de Mensaje de Error</h4>
         <span class="spanSubTitle">Revisa las diferentes tipos de error que pueden presentarse durante la navegacion del sitio, asi como una leve descripción de ello.</span>
-        <mat-divider class="dividMargin"></mat-divider>
+        <mat-divider class="dividMarginSeparador"></mat-divider>
     </div>
     <!--FIN Encabezado de Navegacion-->
     <div class="row">
@@ -27,3 +31,4 @@
         </div>
     </div>
 </div>
+

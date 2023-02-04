@@ -84,3 +84,11 @@ top: 7px;
 margin-top: 10px;
 margin-bottom: 15px;
 }
+/*Modificacion de alerta*/
+::ng-deep .mat-mdc-snack-bar-container {
+    --mat-mdc-snack-bar-button-color: rgba(0, 0, 0, 0.87);
+    --mdc-snackbar-container-color: linear-gradient(to top right, #8162CE, #754dc5);
+    --mdc-snackbar-supporting-text-color: #d4d2d2;
+    background: linear-gradient(to top right, #8162CE, #a37ee9);
+}
+

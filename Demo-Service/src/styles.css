@@ -27,21 +27,55 @@ body {
 .mat-mdc-progress-spinner {
     display: block;
     overflow: hidden;
+    height: max-content;
     line-height: 0;
     position: absolute !important;
     top: 40% !important;
     left: 50% !important;
     transform: translate(-50%, -50%);
+    z-index: 11;
 }
 /* Componente todos  */
 /* Modificacion de preloader*/
 .preloader{
     text-align: -webkit-center;
     width: 100%;
-    height: 100%;
-    position: absolute;
+    height: 100vh;
+    position: fixed;
     background: #0e100f57;
     z-index: 10;
     align-items: center!important;
-
+    word-wrap: break-word;
 }
+/* Componente todos  */
+/* Modificacion de Encabezado de Navegacion*/
+.encabezadoMargin{
+    padding-top: 15px;
+}
+/*Encabezado de titulo de Navegacion*/
+.TituloHeight{
+    margin-bottom: 3px;
+    display: inline-block;
+}
+.spanSubTitle{
+    font-size: 12px;
+    font-weight: 300;
+    display: block;
+}
+.iconTitlePosition{
+    position: relative;
+    top: 7px;
+}
+.dividMargin{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.colMargionTop{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.dividMarginSeparador{
+    margin-top: 15px!important;
+    margin-bottom: 15px!important;
+}
+/*FIN de Encabezado de titulo de Navegacion*/

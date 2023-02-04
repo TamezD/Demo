@@ -1,1 +1,19 @@
-<p>usuarios works!</p>
+<div class="preloader" *ngIf="preloader">
+    <mat-spinner [color]="color"></mat-spinner>
+</div>
+<div class="container">
+    <!--Encabezado de Navegacion-->
+    <div class="encabezadoMargin">
+        <h4 class="TituloHeight" [routerLink]="''">DemoService</h4>
+        <mat-icon class="iconTitlePosition">arrow_right_alt</mat-icon>
+        <h4 class="TituloHeight">Catalogo de Usuarios</h4>
+        <span class="spanSubTitle">Podras visulalizar los diferentes usarios asignados en la plataforma.</span>
+        <mat-divider class="dividMarginSeparador"></mat-divider>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <!-- https://material.angular.io/components/table/overview -->
+            <!-- https://material.angular.io/components/chips/overview -->
+        </div>
+    </div>
+</div>

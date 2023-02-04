@@ -5,6 +5,7 @@ import { UserComponent } from './home/user/user.component';
 import { PreguntasComponent } from './secciones/preguntas/preguntas.component';
 import { CatalogoErroresComponent } from './secciones/catalogo-errores/catalogo-errores.component'; 
 import { ContactoComponent } from './secciones/contacto/contacto.component';
+import { UsuariosComponent } from './secciones/usuarios/usuarios.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'preguntas', component: PreguntasComponent },
   { path: 'catalogo', component: CatalogoErroresComponent },
   { path: 'contacto', component: ContactoComponent },
+  { path: 'usuarios', component: UsuariosComponent },
   
 ];
 
