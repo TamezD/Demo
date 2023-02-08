@@ -16,6 +16,7 @@ import { SeccionesComponent } from './secciones/secciones.component';
 import { PreguntasComponent } from './secciones/preguntas/preguntas.component';
 import { ModalErrorComponent } from './secciones/modal-error/modal-error.component';
 import { CatalogoErroresComponent } from './secciones/catalogo-errores/catalogo-errores.component';
+import { ContactoComponent } from './secciones/contacto/contacto.component';
 
 //MATERIALS
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -31,13 +32,14 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table'  
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 /*Angular Forms*/
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { ContactoComponent } from './secciones/contacto/contacto.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -88,8 +90,9 @@ import { UsuariosComponent } from './secciones/usuarios/usuarios.component';
     MatCheckboxModule,
     MatAutocompleteModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
-    
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

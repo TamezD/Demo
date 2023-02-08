@@ -70,7 +70,12 @@ export class ServiceService {
 
   //Servicio de Catalogo de Errores
   getMyCatalogoError() {
-    return this.http.get<any>(environment.sidebar.dogError,this.httpOptionsMyService);
+    return this.http.get<any>(environment.dogError,this.httpOptionsMyService);
+  }
+
+  //Servicio de Catalogo de Errores
+  getCatalogoUsuarios() {
+    return this.http.get<any>(environment.usuarios,this.httpOptionsMyService);
   }
 
 }

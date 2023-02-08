@@ -1,3 +1,4 @@
+ <!--Preloader-->
 <div class="preloader" *ngIf="preloader">
     <mat-spinner [color]="color"></mat-spinner>
 </div>
@@ -11,9 +12,87 @@
         <mat-divider class="dividMarginSeparador"></mat-divider>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <!-- https://material.angular.io/components/table/overview -->
+        <div class="col-md-12">
             <!-- https://material.angular.io/components/chips/overview -->
+            <!-- Input de Filtro -->
+            <mat-form-field>
+                <mat-label>Buscar usuario</mat-label>
+                <input matInput (keyup)="buscarFilterTabla($event)" placeholder="Ejm. Otto" #input [(ngModel)]="filtre" autocomplete="off">
+              </mat-form-field>
+
+              <!-- Tabla y su data -->
+              <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+                <ng-container matColumnDef="expand">
+                    <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+                    <td mat-cell *matCellDef="let element">
+                      <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === element ? null : element); $event.stopPropagation()">
+                        <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
+                        <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+                      </button>
+                    </td>
+                  </ng-container>
+                  
+                <!-- Column -->
+                <ng-container matColumnDef="nombreUsario">
+                  <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                  <td mat-cell *matCellDef="let element"> {{element.nombreUsario}} </td>
+                </ng-container>
+              
+                <!-- Column -->
+                <ng-container matColumnDef="tipoJugador">
+                  <th mat-header-cell *matHeaderCellDef> Tipo de Juegos </th>
+                  <td mat-cell *matCellDef="let element"> {{element.tipoJugador}} </td>
+                </ng-container>
+              
+                <!-- Column -->
+                <ng-container matColumnDef="consola">
+                  <th mat-header-cell *matHeaderCellDef> Consola </th>
+                  <td mat-cell *matCellDef="let element"> {{element.consola}} </td>
+                </ng-container>
+              
+                <!-- Column -->
+                <ng-container matColumnDef="plataforma">
+                  <th mat-header-cell *matHeaderCellDef> Plataforma </th>
+                  <td mat-cell *matCellDef="let element"> {{element.plataforma}} </td>
+                </ng-container>
+
+                <!-- Contenerdor de Expanzor -->
+                <ng-container matColumnDef="expandedDetail">
+                    <td mat-cell *matCellDef="let element" [attr.colspan]="columnsToDisplayWithExpand.length">
+                      <div class="example-element-detail"
+                           [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                        <img class="imgPerfil" src={{element.userImag}} alt="Photo of a Shiba Inu">
+                        <!-- <div class="example-element-diagram">
+                          <div class="example-element-symbol"> {{element.tipoJugador}} </div>
+                        </div> -->
+                        <div class="example-element-description">
+                          Descripción <br>
+                          <span class="example-element-description-attribution">{{element.descripcionUsuario}} -- Wikipedia </span>
+                        </div>
+                      </div>
+                    </td>
+                  </ng-container>
+                
+                <!-- Relacion de columnos y datbal -->
+                <tr mat-header-row *matHeaderRowDef="columnsToDisplayWithExpand"></tr>
+                <tr mat-row *matRowDef="let element; columns: columnsToDisplayWithExpand;"
+                    class="example-element-row"
+                    [class.example-expanded-row]="expandedElement === element"
+                    (click)="expandedElement = expandedElement === element ? null : element">
+                </tr>
+
+                <!-- Relacion de columnos y datbal con el expanzor -->
+                <tr mat-row *matRowDef="let element; columns: ['expandedDetail']" class="example-detail-row"></tr>
+                
+                <!-- Resultado de la busqueda en vacio cuando se filtra. -->
+                <tr class="mat-row paddingFiltreVacio" *matNoDataRow>
+                  <td *ngIf="filtre" class="mat-cell paddingFiltreVacio" colspan="4">No se encontro resultados en la Busqueda de filtro. "{{input.value}}"</td>
+                </tr>
+              </table>
+
+              <!-- Paginacion de la tabla -->
+              <mat-divider class="margginColorDivider"></mat-divider>
+              <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
         </div>
     </div>
 </div>

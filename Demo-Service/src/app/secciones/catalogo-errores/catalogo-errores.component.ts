@@ -85,7 +85,7 @@ export class CatalogoErroresComponent {
   preloaderHide(){
     setTimeout(() => {
      this.preloader = false;
-    },1700)
+    },3300)
   }
 
 
