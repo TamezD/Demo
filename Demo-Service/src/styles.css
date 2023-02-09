@@ -10,6 +10,7 @@ body {
     margin: 0; 
     padding: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif; 
+    min-width: 280px;
     /* overflow-y: scroll; */
 }
 /* Componente header  */

@@ -60,6 +60,7 @@ export class SidebarComponent  {
 
     this.Services.preloaderToggle.subscribe((preload)=> {
       this.preloader = preload;
+      this.changeColorPreloader();
     });
   }
 
