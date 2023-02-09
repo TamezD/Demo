@@ -1,8 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { ModalErrorComponent } from '../modal-error/modal-error.component';
-import {ThemePalette} from '@angular/material/core';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
-
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ServiceService } from 'src/app/service/service.service';
 export interface DialogData {
   animal: string;
   name: string;
@@ -19,19 +18,15 @@ export class PreguntasComponent {
   animal: string;
   name: string;
 
-  //Varibles de Preloader
-  preloader: boolean = true;
-  numerColorPreloader: number = 1;
-  color: ThemePalette = 'primary';
-
-
-  constructor (public dialog: MatDialog){
+  constructor (public dialog: MatDialog, private servicios: ServiceService){
 
   }
 
   ngOnInit() {
-    this.changeColorPreloader();
-    this.preloaderShow();
+     //Mostrar el Preloader 
+     this.servicios.setPreloaderToggle(true);
+     //Ocultar el preloader
+     this.preloaderHide();
   }
 
   //---------------
@@ -48,33 +43,10 @@ export class PreguntasComponent {
     });
   }
 
-  //Funcion de cambio de color de preloader
-  changeColorPreloader(){
-    setTimeout(() => {
-      switch(this.numerColorPreloader){
-        case 1:
-          this.color = 'primary';
-          this.numerColorPreloader++;
-        break;
-        case 2:
-          this.color = 'accent';
-          this.numerColorPreloader++;
-        break;
-        case 3:
-          this.color = 'warn';
-          this.numerColorPreloader = 1;
-        break;
-      };
-    if(this.preloader == true){
-      this.changeColorPreloader();
-    }
-    },1400)
-  }
-
   //Funcion ocultar Preloader
-  preloaderShow(){
+  preloaderHide(){
     setTimeout(() => {
-     this.preloader = false;
+      this.servicios.setPreloaderToggle(false);
     },1400)
   }
 

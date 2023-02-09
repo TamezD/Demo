@@ -1,27 +1,32 @@
 <mat-toolbar color="primary" class="headercs headerColor">
-    <button mat-icon-button matTooltip="Menu" matTooltipPosition="below" (click)="clickMenu()" class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
+  <!--Menu Sidebar-->
+  <button mat-icon-button matTooltip="Menu" matTooltipPosition="below" (click)="clickMenu()" class="example-icon d-md-block d-sm-block d-block d-lg-none" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <!--Titulo-->
+  <span class="title" [routerLink]="''">DemoService</span>
+  <span class="example-spacer"></span>
+  <!--Notificaciones-->
+  <button mat-icon-button 
+    matBadge="7"
+    matTooltip="Notificaciones"
+    matTooltipPosition="below"
+    class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>notifications_active</mat-icon>
+  </button>
+  <!--VerMas-->
+  <button mat-icon-button [matMenuTriggerFor]="beforeMenu" class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+    <!--SubMenu de Mas-->
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item disabled>
+      <mat-icon>get_app</mat-icon>
+      <span>Version 1.0.1</span>
     </button>
-    <span class="title" [routerLink]="''">DemoService</span>
-    <span class="example-spacer"></span>
-    <button mat-icon-button 
-      matBadge="7"
-      matTooltip="Notificaciones"
-      matTooltipPosition="below"
-      class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>notifications_active</mat-icon>
+    <button mat-menu-item [routerLink]="'/preguntas'">
+      <mat-icon>info</mat-icon>
+      <span>Acerca de</span>
     </button>
-    <button mat-icon-button [matMenuTriggerFor]="beforeMenu" class="example-icon" aria-label="Example icon-button with share icon">
-      <mat-icon>more_vert</mat-icon>
-    </button>
-    <mat-menu #beforeMenu="matMenu" xPosition="before">
-      <button mat-menu-item disabled>
-        <mat-icon>get_app</mat-icon>
-        <span>Version 1.0.1</span>
-      </button>
-      <button mat-menu-item [routerLink]="'/preguntas'">
-        <mat-icon>info</mat-icon>
-        <span>Acerca de</span>
-      </button>
-    </mat-menu>
-  </mat-toolbar>
+  </mat-menu>
+</mat-toolbar>

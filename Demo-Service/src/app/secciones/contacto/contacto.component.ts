@@ -1,12 +1,8 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {ThemePalette} from '@angular/material/core';
-import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
-import { TitleStrategy } from '@angular/router';
-
+import { ServiceService } from 'src/app/service/service.service';
 
 @Component({
   selector: 'app-contacto',
@@ -19,10 +15,6 @@ export class ContactoComponent {
   public myForm: FormGroup;
   telfono: any;
   botonEnviar: boolean = true;
-  
-  //Varibles de Preloader
-  preloader: boolean = true;
-  numerColorPreloader: number = 1;
 
   //Varibales de Mensajes
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
@@ -38,13 +30,15 @@ export class ContactoComponent {
   telFormControl = new FormControl('', [Validators.required, Validators.maxLength(10),Validators.minLength(10)]);
   TerminosChecked: boolean = false;
 
-  constructor (private _snackBar: MatSnackBar){
+  constructor (private servicios: ServiceService, private _snackBar: MatSnackBar){
     
   }
     
   ngOnInit() {
-    this.changeColorPreloader();
-    this.preloaderShow();
+    //Mostrar el Preloader 
+    this.servicios.setPreloaderToggle(true);
+    //Ocultar el preloader
+    this.preloaderHide();
   }
 
   //---------------
@@ -87,33 +81,10 @@ export class ContactoComponent {
     },2600)
   }
 
-  //Funcion de cambio de color de preloader
-  changeColorPreloader(){
-    setTimeout(() => {
-      switch(this.numerColorPreloader){
-        case 1:
-          this.color = 'primary';
-          this.numerColorPreloader++;
-        break;
-        case 2:
-          this.color = 'accent';
-          this.numerColorPreloader++;
-        break;
-        case 3:
-          this.color = 'warn';
-          this.numerColorPreloader = 1;
-        break;
-      };
-    if(this.preloader == true){
-      this.changeColorPreloader();
-    }
-    },1400)
-  }
-
   //Funcion ocultar Preloader
-  preloaderShow(){
+  preloaderHide(){
     setTimeout(() => {
-     this.preloader = false;
+      this.servicios.setPreloaderToggle(false);
     },1400)
   }
 }

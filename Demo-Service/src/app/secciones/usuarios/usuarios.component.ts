@@ -6,7 +6,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
-
 export interface UserioElement {
   nombreUsario: any;
   tipoJugador: any;
@@ -31,12 +30,9 @@ const ELEMENT_DATA: UserioElement[] = [];
   ],
 })
 export class UsuariosComponent {
+  
+  //Varibles
   filtre: any;
-
-  //Varibles de Preloader
-  preloader: boolean = true;
-  numerColorPreloader: number = 1;
-  color: ThemePalette = 'primary';
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -45,17 +41,16 @@ export class UsuariosComponent {
   }
 
   ngOnInit() {
-    this.changeColorPreloader();
     this.getCatalogoUser();
+    this.servicios.setPreloaderToggle(true);
   }
-  
+
+  //Se crea la data de la tabla.
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   displayedColumns: string[] = ['nombreUsario', 'tipoJugador', 'consola', 'plataforma'];
   //Se agrega las columna de expandit y se usa columnsToDisplayWithExpand como array de columnas
   columnsToDisplayWithExpand = [...this.displayedColumns, 'expand'];
   expandedElement: UserioElement | null;
-
- 
 
   //---------------
   //  FUNCIONES
@@ -93,41 +88,13 @@ export class UsuariosComponent {
       this.dataSource.sort = this.sort;
       //Oculta el preloader
       this.preloaderHide();
-
       //console.log(JSON.stringify(dataSource));
     });
   }
-
-  
-
-  //Funcion de cambio de color de preloader
-  changeColorPreloader(){
-    setTimeout(() => {
-      switch(this.numerColorPreloader){
-        case 1:
-          this.color = 'primary';
-          this.numerColorPreloader++;
-        break;
-        case 2:
-          this.color = 'accent';
-          this.numerColorPreloader++;
-        break;
-        case 3:
-          this.color = 'warn';
-          this.numerColorPreloader = 1;
-        break;
-      };
-    if(this.preloader == true){
-      this.changeColorPreloader();
-    }
-    },1350)
-  }
-
   //Funcion ocultar Preloader
   preloaderHide(){
     setTimeout(() => {
-     this.preloader = false;
-    },1700)
+      this.servicios.setPreloaderToggle(false);
+    },1400)
   }
-
 }

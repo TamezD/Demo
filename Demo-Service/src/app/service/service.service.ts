@@ -25,6 +25,14 @@ export class ServiceService {
       this.sidebar.next(value);
   }
 
+  //Preloader 
+  private preloader = new BehaviorSubject(false);
+  preloaderToggle = this.preloader.asObservable();
+
+  setPreloaderToggle(value: any) {
+      this.preloader.next(value);
+  }
+
   //Obserbable de Sidebar
   public sideNavToggleSubject = new BehaviorSubject(null);
   

@@ -1,6 +1,7 @@
 .paddingFiltreVacio{
     padding: 15px!important;
     text-align: center;
+    min-width: 475px!important;
 }
 .margginColorDivider{
     border-top-color: rgb(23 22 22 / 95%)!important;
@@ -54,4 +55,11 @@ padding: 16px;
 }
 .example-element-description-attribution {
 opacity: 0.5;
+}
+table{
+    /* min-width: 475px!important; */
+}
+.mat-mdc-paginator {
+    display: block;
+    min-width: 475px!important;
 }

@@ -35,6 +35,11 @@ mat-drawer-content {
   cursor: pointer;
 }
 .divContacto{
-  position: absolute;
-  bottom: 70px;
+  position: fixed;
+  bottom: 10px;
+}
+.sidebarLarge{
+  max-width: 220px;
+  border-right: 1px solid #64616185;
+  padding-top: 7px;
 }

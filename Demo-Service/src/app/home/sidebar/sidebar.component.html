@@ -1,4 +1,9 @@
+<!--Preloader-->
+<div class="preloader" *ngIf="preloader">
+  <mat-spinner [color]="color" ></mat-spinner>
+</div>
 <mat-sidenav-container class="example-container" [hasBackdrop]="true">
+   <!--Contenido de Sidebar ocultando-->
   <mat-sidenav #sidenav mode="side" class="example-sidenav">My Sindebar
     <mat-list>
       <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo" (click)="routerLink(infoSider.attributes.ligaSeccion, infoSider.type)">
@@ -15,11 +20,31 @@
     </mat-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <!--Seccion de outlet cel es la navegacion de sitio-->
-    <router-outlet></router-outlet>
-    <!--Seccion de Footer-->
-    <app-footer></app-footer>
-    <!--Compensacion de Encabezado en scroll-->
-    <div style="height: 65px;"></div>
+    <!--Contenido de Sidebar pantalla Larga-->
+    <div class="row">
+        <div class="col d-none d-lg-block sidebarLarge">
+        <mat-list>
+          <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo" (click)="routerLink(infoSider.attributes.ligaSeccion, infoSider.type)">
+            <mat-icon matListItemIcon class="listIcon">{{infoSider.attributes.iconoSeccion}}</mat-icon>
+            <span *ngIf="infoSider.attributes.nombreSeccion?.length > 15" matTooltip={{infoSider.attributes.nombreSeccion}} matTooltipPosition="below" class="spanText">{{infoSider.attributes.nombreSeccion}}</span>
+            <span *ngIf="infoSider.attributes.nombreSeccion?.length < 15" class="spanText">{{infoSider.attributes.nombreSeccion}}</span>
+          </mat-list-item>
+          <div class="divContacto">
+          <mat-list-item class="itemHeight" (click)="routerLink('contacto', 'nombreSeccion')">
+            <mat-icon matListItemIcon class="listIcon">contact_support</mat-icon>
+            <span class="spnaFont">Contactanos</span>
+          </mat-list-item>
+          </div>
+        </mat-list>
+      </div>
+      <!--Seccion de outlet cel es la navegacion de sitio-->
+      <div class="col">
+        <router-outlet></router-outlet>
+        <!--Seccion de Footer-->
+        <app-footer></app-footer>
+        <!--Compensacion de Encabezado en scroll-->
+        <div style="height: 65px;"></div>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
