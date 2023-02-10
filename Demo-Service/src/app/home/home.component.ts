@@ -18,6 +18,9 @@ export class HomeComponent {
     //Ocultar el preloader
     this.preloaderHide();
   }
+  ngAfterViewInit() {
+    
+  }
 
   //---------------
   //  FUNCIONES

@@ -3,6 +3,7 @@ import { ServiceService } from '../../service/service.service';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import {ThemePalette} from '@angular/material/core';
+import { ChangeDetectorRef } from '@angular/core';
 
 
 
@@ -25,7 +26,7 @@ export class SidebarComponent  {
   //@ViewChild('sidenav') public sidenav: MatSidenav;
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
 
-  constructor(private Services: ServiceService, private Router: Router){
+  constructor(private Services: ServiceService, private Router: Router, private cdRef: ChangeDetectorRef){
     //Code
     
   }
@@ -34,7 +35,7 @@ export class SidebarComponent  {
   //FUNCIONES DE INICIO 
   //---------------
   ngOnInit() {
-    
+    this.Services.setPreloaderToggle(true);
     this.changeColorPreloader();
     this.getMySidebar()
 
@@ -60,11 +61,13 @@ export class SidebarComponent  {
 
     this.Services.preloaderToggle.subscribe((preload)=> {
       this.preloader = preload;
+      //Correcion de error NG0100
       this.changeColorPreloader();
+      this.cdRef.detectChanges();
+      
     });
   }
 
-  
 
   //---------------
   //  LLAMADAS A SERVICIOS
@@ -94,25 +97,25 @@ export class SidebarComponent  {
 
   //Funcion de cambio de color de preloader
   changeColorPreloader(){
+    switch(this.numerColorPreloader){
+      case 1:
+        this.color = 'primary';
+        this.numerColorPreloader++;
+      break;
+      case 2:
+        this.color = 'accent';
+        this.numerColorPreloader++;
+      break;
+      case 3:
+        this.color = 'warn';
+        this.numerColorPreloader = 1;
+      break;
+    };
     setTimeout(() => {
-      switch(this.numerColorPreloader){
-        case 1:
-          this.color = 'primary';
-          this.numerColorPreloader++;
-        break;
-        case 2:
-          this.color = 'accent';
-          this.numerColorPreloader++;
-        break;
-        case 3:
-          this.color = 'warn';
-          this.numerColorPreloader = 1;
-        break;
-      };
-    if(this.preloader == true){
-      this.changeColorPreloader();
-    }
-    },1400)
+      if(this.preloader == true){
+        this.changeColorPreloader();
+      }
+    },2400)
   }
 
   //Funcion ocultar Preloader
