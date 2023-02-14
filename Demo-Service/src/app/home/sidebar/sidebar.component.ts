@@ -17,6 +17,7 @@ export class SidebarComponent  {
   //Varibles
   status: boolean = true;
   sidebarInfo: any;
+  sidebarAll: boolean = false;
 
   //Varibles de Preloader
   preloader: boolean = true;
@@ -38,11 +39,13 @@ export class SidebarComponent  {
     this.Services.setPreloaderToggle(true);
     this.changeColorPreloader();
     this.getMySidebar()
+    console.log(this.sidenav);
 
     /* Funcion de Observable de Sidebar */
     //Se inicia el obserbable para controlar con otro controlador 
     this.Services.sideNavToggleSubject.subscribe(()=> {
     //Para que no marque error se envia al inicio un estatus de falso
+    console.log(this.sidenav.opened);
       if(this.status){
         this.sidenav.toggle(false);
       }else{

@@ -2,9 +2,9 @@
 <div class="preloader" *ngIf="preloader">
   <mat-spinner [color]="color" ></mat-spinner>
 </div>
-<mat-sidenav-container class="example-container" [hasBackdrop]="true">
+<mat-sidenav-container class="contenerSidebar" [hasBackdrop]="true">
    <!--Contenido de Sidebar ocultando-->
-  <mat-sidenav #sidenav mode="side" class="example-sidenav">My Sindebar
+  <mat-sidenav #sidenav mode="side" class="sidebar">My Sindebar
     <mat-list>
       <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo" (click)="routerLink(infoSider.attributes.ligaSeccion, infoSider.type)">
         <mat-icon matListItemIcon class="listIcon">{{infoSider.attributes.iconoSeccion}}</mat-icon>
@@ -22,7 +22,8 @@
   <mat-sidenav-content>
     <!--Contenido de Sidebar pantalla Larga-->
     <div class="row">
-        <div class="col d-none d-lg-block sidebarLarge">
+        <!--IF para saber si esta abierto o no el otro sidebar, ya que si se expade la pantalla abre el otro sidebar-->
+        <div class="col d-none d-lg-block sidebarLarge" *ngIf="!sidenav.opened">
         <mat-list>
           <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo" (click)="routerLink(infoSider.attributes.ligaSeccion, infoSider.type)">
             <mat-icon matListItemIcon class="listIcon">{{infoSider.attributes.iconoSeccion}}</mat-icon>

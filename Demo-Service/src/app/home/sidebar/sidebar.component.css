@@ -4,12 +4,15 @@ mat-drawer-content {
     flex-direction: column;
     align-items: flex-start;
   }
-  .example-sidenav {
+  .sidebar {
     padding: 20px;
     height: 100%;
     width: 220px;
   }
-  .example-container{
+  .mat-drawer {
+    background-color:hwb(206deg 22% 75%); 
+  }
+  .contenerSidebar{
     height: 100%;
   }
   .mdc-list-item.mdc-list-item--with-one-line {
@@ -40,6 +43,7 @@ mat-drawer-content {
 }
 .sidebarLarge{
   max-width: 220px;
-  border-right: 1px solid #64616185;
+  /* border-right: 1px solid #64616185; */
   padding-top: 7px;
+  background-color: rgb(68 79 91 / 39%);
 }
