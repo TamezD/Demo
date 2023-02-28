@@ -21,11 +21,11 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <!--Contenido de Sidebar pantalla Larga-->
-    <div class="row">
+    <div class="row rowHeight">
         <!--IF para saber si esta abierto o no el otro sidebar, ya que si se expade la pantalla abre el otro sidebar-->
         <div class="col d-none d-lg-block sidebarLarge" *ngIf="!sidenav.opened">
         <mat-list>
-          <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo" (click)="routerLink(infoSider.attributes.ligaSeccion, infoSider.type)">
+          <mat-list-item class="contenerItem" *ngFor="let infoSider of sidebarInfo" (click)="routerLink(infoSider.attributes.ligaSeccion, infoSider.type)" [disabled]=" infoSider.attributes.ligaSeccion == disabelUbicacion ? true :false">
             <mat-icon matListItemIcon class="listIcon">{{infoSider.attributes.iconoSeccion}}</mat-icon>
             <span *ngIf="infoSider.attributes.nombreSeccion?.length > 18" matTooltip={{infoSider.attributes.nombreSeccion}} matTooltipPosition="below" class="spanText">{{infoSider.attributes.nombreSeccion}}</span>
             <span *ngIf="infoSider.attributes.nombreSeccion?.length < 18" class="spanText">{{infoSider.attributes.nombreSeccion}}</span>
@@ -39,7 +39,7 @@
         </mat-list>
       </div>
       <!--Seccion de outlet cel es la navegacion de sitio-->
-      <div class="col">
+      <div class="col" >
         <router-outlet></router-outlet>
         <!--Seccion de Footer-->
         <app-footer></app-footer>

@@ -1,10 +1,9 @@
-import { Component,ViewChild, OnInit, Input} from '@angular/core';
+import { Component,ViewChild, OnInit, Input, ApplicationRef} from '@angular/core';
 import { ServiceService } from '../../service/service.service';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Router } from '@angular/router';
-import {ThemePalette} from '@angular/material/core';
-import { ChangeDetectorRef } from '@angular/core';
-
+import { Router, Event, NavigationStart, NavigationEnd, NavigationError} from '@angular/router';
+import { ThemePalette } from '@angular/material/core';
+import { ChangeDetectorRef} from '@angular/core';
 
 
 @Component({
@@ -18,18 +17,27 @@ export class SidebarComponent  {
   status: boolean = true;
   sidebarInfo: any;
   sidebarAll: boolean = false;
+  disabelUbicacion: any;
 
   //Varibles de Preloader
   preloader: boolean = true;
   numerColorPreloader: number = 1;
   color: ThemePalette = 'primary';
 
+  
+
   //@ViewChild('sidenav') public sidenav: MatSidenav;
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
 
   constructor(private Services: ServiceService, private Router: Router, private cdRef: ChangeDetectorRef){
-    //Code
-    
+    //Evento para saber en que root estoy 
+    //console.log(document.location.href);
+    this.Router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        this.disabelUbicacion = event.url.slice(1);
+        console.log(this.disabelUbicacion);
+      }
+    });
   }
 
   //---------------
@@ -39,13 +47,13 @@ export class SidebarComponent  {
     this.Services.setPreloaderToggle(true);
     this.changeColorPreloader();
     this.getMySidebar()
-    console.log(this.sidenav);
+    // console.log(this.sidenav);
 
     /* Funcion de Observable de Sidebar */
     //Se inicia el obserbable para controlar con otro controlador 
     this.Services.sideNavToggleSubject.subscribe(()=> {
     //Para que no marque error se envia al inicio un estatus de falso
-    console.log(this.sidenav.opened);
+    // console.log(this.sidenav.opened);
       if(this.status){
         this.sidenav.toggle(false);
       }else{

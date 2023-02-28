@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {ThemePalette} from '@angular/material/core';
-import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
+import { ThemePalette } from '@angular/material/core';
 import { ServiceService } from 'src/app/service/service.service';
+import {HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpEventType} from '@angular/common/http';
+import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-contacto',
@@ -12,7 +13,6 @@ import { ServiceService } from 'src/app/service/service.service';
 export class ContactoComponent {
 
   //Variables 
-  public myForm: FormGroup;
   telfono: any;
   botonEnviar: boolean = true;
 
@@ -20,7 +20,6 @@ export class ContactoComponent {
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   color: ThemePalette = 'primary';
-  
 
   //Variables de Valores de validacion.
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
@@ -29,8 +28,14 @@ export class ContactoComponent {
   comentariosFormControl = new FormControl('', [Validators.required]);
   telFormControl = new FormControl('', [Validators.required, Validators.maxLength(10),Validators.minLength(10)]);
   TerminosChecked: boolean = false;
+  
+  //Variables de carga de Archivo
+  myForm = new FormGroup({
+    file: new FormControl('', [Validators.required]),
+    fileSource: new FormControl("", [Validators.required])
+  });
 
-  constructor (private servicios: ServiceService, private _snackBar: MatSnackBar){
+  constructor (private servicios: ServiceService, private _snackBar: MatSnackBar, private http: HttpClient){
     
   }
     
@@ -53,11 +58,13 @@ export class ContactoComponent {
 
   //Validacion del formularioo
   validarInfo(){
+    console.log(this.fileForm.file.invalid)
     if(this.emailFormControl.status == "VALID"  
       && this.nombreFormControl.status == "VALID" 
       && this.apellidoFormControl.status == "VALID"
       && this.comentariosFormControl.status == "VALID"
       && this.telFormControl.status == "VALID" 
+      && this.fileForm.file.invalid == false
       && this.TerminosChecked){
       this.botonEnviar = false;
     }else{
@@ -66,7 +73,7 @@ export class ContactoComponent {
   }
 
   //Envio de comentarios y mostrar mensaje de confirmacion
-  enviarComentarios() {
+  mensajeEnvio() {
     //Despues de enviar se bloquea el botton
     this.botonEnviar = true;
     this._snackBar.open('Comentario Enviado..Gracias!!', 'Ok', {
@@ -77,7 +84,7 @@ export class ContactoComponent {
 
     //Limpiar los valores.
     setTimeout(() => {
-      window.location.reload();
+      //window.location.reload();
     },2600)
   }
 
@@ -86,5 +93,53 @@ export class ContactoComponent {
     setTimeout(() => {
       this.servicios.setPreloaderToggle(false);
     },1400)
+  }
+
+  ///CARGA DE ARCHIVO///
+  get fileForm(){
+    return this.myForm.controls;
+  }
+
+  //Cambio de archivo
+  onFileChange(event: any) {
+    this.servicios.setPreloaderToggle(true);
+    try{
+      if (event.target.files.length > 0) {
+        const file = event.target.files[0];
+        console.log(file);
+        this.myForm.patchValue({
+          fileSource: file
+        });
+      }
+      this.preloaderHide();
+      //console.log(this.myForm);
+    }catch(e) {
+      console.log(e);
+      this._snackBar.open('A ocurrido un error..', 'Cerrar', {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: "bottom",
+        panelClass: ['fileError'],
+        duration: 2500,
+      }); 
+    }
+  }
+
+  //Envio de Archivo a servidor de prueba
+  enviarComentarios(){
+    this.servicios.setPreloaderToggle(true);
+    const formData = new FormData(); 
+    var file: any = this.myForm.get("fileSource");
+    formData.append('file',file.value)
+    console.log(formData)
+    this.http.post('http://file.io', formData)
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.mensajeEnvio();
+        },
+        error: (err) => {
+          console.log("Error, al subir el archivo. "+err);
+        }
+      });
   }
 }

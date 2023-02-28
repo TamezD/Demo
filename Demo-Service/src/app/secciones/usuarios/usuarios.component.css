@@ -14,6 +14,10 @@
     margin-right: 15px;
 }
 
+.containerHeight{
+    min-height: 500px!important;
+}
+
 /*Cuando pasas el cursor por un registro*/
 tr.example-element-row:not(.example-expanded-row):hover {
     background: rgba(159, 118, 118, 0.425);

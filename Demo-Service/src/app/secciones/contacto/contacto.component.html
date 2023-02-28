@@ -10,7 +10,7 @@
     </div>
     <!--FIN Encabezado de Navegacion-->
     <div class="row">
-        <div class="col-md-6 colMargin">
+        <div class="col-md-6 colMargin animate__animated animate__fadeInUp">
             <mat-card class="cardWidth" align="center">
                 <!-- <mat-card-header>
                 </mat-card-header> -->
@@ -78,6 +78,21 @@
                             <mat-error *ngIf="apellidoFormControl.hasError('required')">Se requiere un
                                 comentario.</mat-error>
                         </mat-form-field>
+                        <div class="col" style="text-align: left; margin-bottom: 10px;">
+                            <div [formGroup]="myForm" class="form-group">
+                              <label for="file">Carga de Archivo</label>
+                              <input 
+                                  formControlName="file"
+                                  id="file" 
+                                  type="file" 
+                                  class="form-control"
+                                  (change)="onFileChange($event)">
+                              <div *ngIf="fileForm.file.touched && fileForm.file.invalid" class="alert alert-danger">
+                                  <div *ngIf="fileForm.file.errors?.['required']">Archivo es Requerido.</div>
+                              </div>
+                              <!-- <button class="btn btn-primary" (click)="submit()">Submit</button> -->
+                            </div>
+                          </div>
                         <!--CheckBox del From-->
                         <section class="example-section">
                             <mat-checkbox class="example-margin" (change)="cambioTerminos()" [checked]="TerminosChecked">Acepto los terminos y

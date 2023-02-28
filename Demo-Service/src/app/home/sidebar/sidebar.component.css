@@ -15,6 +15,14 @@ mat-drawer-content {
   .contenerSidebar{
     height: 100%;
   }
+  /*Cuando pasas el cursor por un registro*/
+  .contenerItem:hover {
+    border-radius: 3px;
+    background: rgba(159, 118, 118, 0.425);
+  }
+  .rowHeight{
+    height: 100%;
+  }
   .mdc-list-item.mdc-list-item--with-one-line {
     height: 40px;
   }

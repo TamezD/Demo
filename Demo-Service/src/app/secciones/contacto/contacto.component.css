@@ -63,3 +63,17 @@ td{
     position: relative;
     box-sizing: border-box;
 }
+/*Modificacion de alerta carga de archivo*/
+::ng-deep .mat-mdc-snack-bar-container.fileError  {
+    --mdc-snackbar-container-color: #ea5563;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+}
+.alert-danger {
+    --bs-alert-color: #ea5563;
+    --bs-alert-bg: none;
+    --bs-alert-border-color: none;
+    --bs-alert-link-color: none;
+    --bs-alert-padding-x: none;
+    margin-bottom: 0px!important;
+}

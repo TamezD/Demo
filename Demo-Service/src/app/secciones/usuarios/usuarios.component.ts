@@ -1,4 +1,4 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component,ViewChild, VERSION} from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ServiceService } from 'src/app/service/service.service';
@@ -6,6 +6,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
+
+
+//Columnas de tabla
 export interface UserioElement {
   nombreUsario: any;
   tipoJugador: any;
@@ -13,9 +16,11 @@ export interface UserioElement {
   plataforma: any;
   userImag: any;
   descripcionUsuario: any;
+
 }
 
 const ELEMENT_DATA: UserioElement[] = [];
+
 
 @Component({
   selector: 'app-usuarios',
@@ -30,7 +35,7 @@ const ELEMENT_DATA: UserioElement[] = [];
   ],
 })
 export class UsuariosComponent {
-  
+
   //Varibles
   filtre: any;
 
@@ -38,8 +43,10 @@ export class UsuariosComponent {
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private servicios: ServiceService){
+    //Vaciamos la tabla.
+    this.dataSource = new MatTableDataSource();
   }
-
+  
   ngOnInit() {
     this.getCatalogoUser();
     this.servicios.setPreloaderToggle(true);
@@ -91,6 +98,7 @@ export class UsuariosComponent {
       //console.log(JSON.stringify(dataSource));
     });
   }
+
   //Funcion ocultar Preloader
   preloaderHide(){
     setTimeout(() => {
