@@ -49,6 +49,7 @@ export class CatalogoErroresComponent {
   //---------------
   //Abrir Modal del catalogo de Error 
   openDialog(error: any): void {
+    console.log(JSON.stringify(error));
     const dialogRef = this.dialog.open(ModalErrorComponent, {
       data: {error: error},
     });

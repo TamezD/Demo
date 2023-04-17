@@ -19,7 +19,7 @@ export class ModalErrorComponent {
   /* Constructor para la llamada a modal, con Injector de parametro */
   constructor(public dialogRef: MatDialogRef<ModalErrorComponent>,@Inject(MAT_DIALOG_DATA) public data: DialogData,) {
     //Informacion que treae el modal como objeto
-    //console.log(JSON.stringify(data));
+    console.log(JSON.stringify(data));
   }
 
   //---------------

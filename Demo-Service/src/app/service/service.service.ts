@@ -86,4 +86,8 @@ export class ServiceService {
     return this.http.get<any>(environment.usuarios,this.httpOptionsMyService);
   }
 
+  // getMonkeys(): Observable<any[]> {
+  //   return this.http.get<any[]>(environment.sidebar.seccion,this.httpOptionsMyService).pipe(catchError(error => of(null)));
+  // }
+
 }

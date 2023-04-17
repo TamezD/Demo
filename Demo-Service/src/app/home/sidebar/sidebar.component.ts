@@ -2,9 +2,16 @@ import { Component,ViewChild, OnInit, Input, ApplicationRef} from '@angular/core
 import { ServiceService } from '../../service/service.service';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Router, Event, NavigationStart, NavigationEnd, NavigationError} from '@angular/router';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import { ModalErrorComponent } from 'src/app/secciones/modal-error/modal-error.component';
 import { ThemePalette } from '@angular/material/core';
 import { ChangeDetectorRef} from '@angular/core';
+import { environment } from 'src/environments/environment';
 
+//Exportar Modal de Catalogo Error
+export interface DialogData {
+  error: any
+}
 
 @Component({
   selector: 'app-sidebar',
@@ -29,13 +36,12 @@ export class SidebarComponent  {
   //@ViewChild('sidenav') public sidenav: MatSidenav;
   @ViewChild('sidenav', { static: true }) sidenav: MatSidenav;
 
-  constructor(private Services: ServiceService, private Router: Router, private cdRef: ChangeDetectorRef){
+  constructor(private Services: ServiceService, private Router: Router, private cdRef: ChangeDetectorRef,public dialog: MatDialog,){
     //Evento para saber en que root estoy 
-    //console.log(document.location.href);
     this.Router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
         this.disabelUbicacion = event.url.slice(1);
-        console.log(this.disabelUbicacion);
+        //console.log(this.disabelUbicacion);
       }
     });
   }
@@ -46,8 +52,12 @@ export class SidebarComponent  {
   ngOnInit() {
     this.Services.setPreloaderToggle(true);
     this.changeColorPreloader();
-    this.getMySidebar()
-    // console.log(this.sidenav);
+    //Tomar valor de LocalStorage
+    this.sidebarInfo = localStorage.getItem('sidebar');
+    this.sidebarInfo = (this.sidebarInfo != null) ? JSON.parse(this.sidebarInfo) : null ;
+    if(!this.sidebarInfo){
+      this.getMySidebar();
+    }
 
     /* Funcion de Observable de Sidebar */
     //Se inicia el obserbable para controlar con otro controlador 
@@ -87,10 +97,22 @@ export class SidebarComponent  {
   //Servicio de Sidebar
   getMySidebar(): void {
     this.Services.getMySindebar()
-    .subscribe((sidebar) => {
-      this.sidebarInfo = sidebar.data;
-      //console.log(JSON.stringify(sidebar.data));
-    });
+    .subscribe({
+      next: (result) => {
+        this.sidebarInfo = result.data;
+        //Borrar un LocalStorage
+        // localStorage.removeItem('sidebar');
+        //Enviar valor de LocalStorage 
+        localStorage.setItem('sidebar', JSON.stringify(this.sidebarInfo));
+      },
+      error: (error) =>{
+        console.log(error.status+" "+error.message);
+        this.openDialog(error.status);
+      },
+      // complete: () =>{
+      //   console.info('complete');
+      // } 
+    })
   }
 
   //---------------
@@ -136,4 +158,12 @@ export class SidebarComponent  {
     },1400)
   }
 
+  //Abrir Modal del catalogo de Error 
+  openDialog(error: any): void {
+    //Objeto de error de prueba
+    error = JSON.parse(environment.errorDog);
+    const dialogRef = this.dialog.open(ModalErrorComponent, {
+      data: {error: error},
+    });
+  }
 }

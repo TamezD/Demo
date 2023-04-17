@@ -84,7 +84,7 @@ export class ContactoComponent {
 
     //Limpiar los valores.
     setTimeout(() => {
-      //window.location.reload();
+      window.location.reload();
     },2600)
   }
 
